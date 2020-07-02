@@ -13,7 +13,7 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from 'serviceWorker';
 import 'sanitize.css/sanitize.css';
-
+import MyContext from './context';
 // Import root app
 import { App } from 'app';
 
@@ -30,11 +30,20 @@ const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 interface Props {
   Component: typeof App;
 }
+const v = {
+  auth: false,
+  authenticate: () => {
+    v.auth = !v.auth;
+    console.log(v);
+  },
+};
 const ConnectedApp = ({ Component }: Props) => (
   <Provider store={store}>
     <HelmetProvider>
       <React.StrictMode>
-        <Component />
+        <MyContext.Provider value={v}>
+          <Component />
+        </MyContext.Provider>
       </React.StrictMode>
     </HelmetProvider>
   </Provider>

@@ -8,3 +8,8 @@ export const HomePage = lazyLoad(
   () => import('./index'),
   module => module.HomePage,
 );
+
+export const Login = lazyLoad(
+  () => import('./login'),
+  module => module.Login,
+);
