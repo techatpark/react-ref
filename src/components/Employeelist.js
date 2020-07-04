@@ -26,14 +26,14 @@ export const Employeelist = () => {
                       role="group"
                       aria-label="Basic example"
                     >
-                      <button type="button" class="btn btn-outline-secondary">
-                        <Link to={`/edit/${employee.id}`}>
+                      <Link to={`/edit/${employee.id}`}>
+                        <button type="button" class="btn btn-outline-secondary">
                           <i
                             class="far fa-edit"
                             onClick={() => editEmployee(employee.id)}
                           ></i>
-                        </Link>
-                      </button>
+                        </button>
+                      </Link>
                       <button type="button" class="btn btn-outline-secondary">
                         <i
                           class="far fa-trash-alt"
