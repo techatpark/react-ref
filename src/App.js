@@ -1,43 +1,23 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
+import { Route, Switch } from 'react-router-dom';
+import './stylesheet/styles.css';
+import { Home } from './components/Home';
+import { Addemployee } from './components/Addemployee';
+import { Editemployee } from './components/Editemployee';
 
-export default function App() {
+
+import { GlobalProvider } from './context/GlobalState';
+
+function App() {
   return (
-    <Router>
+    <GlobalProvider>
       <Switch>
-        <Route path="/login" render={props => <LoginPage {...props} />} />
-        <PrivateRoute path="/" Child={HomePage} />
+        <Route path="/" component={Home} exact />
+        <Route path="/add" component={Addemployee} exact />
+        <Route path="/edit/:id" component={Editemployee} exact />
       </Switch>
-    </Router>
+    </GlobalProvider>
   );
 }
 
-function PrivateRoute({ Child, path }) {
-  return (
-    <Route
-      path={path}
-      render={props =>
-        localStorage.getItem('isAuthenticated') == 'true' ? (
-          <Child {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: props.location },
-            }}
-          />
-        )
-      }
-    />
-  );
-}
+export default App;
