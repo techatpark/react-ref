@@ -24,20 +24,34 @@ export const Home = () => {
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link">Employee</a>
+              <li class="nav-item">
+                <a class="nav-link active">Employees</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link">Department</a>
+              <li class="nav-item">
+                <a class="nav-link active">Departments</a>
               </li>
             </ul>
           </div>
         </div>
+        <ul class="navbar-nav ml-sm-auto">
+          <li class="nav-item active">
+            <a
+              class="nav-link active"
+              href="https://github.com/twbs"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fas fa-power-off"></i>
+            </a>
+          </li>
+        </ul>
       </nav>
 
       <div class="container-fluid mt-3 vh-100 pb-5">
         <section class="row mt-5 p-2 min-vh-100">
           <div class="col">
+            Welcome to CRUD
             <Employeelist />
           </div>
         </section>

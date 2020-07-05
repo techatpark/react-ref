@@ -25,38 +25,48 @@ export const Addemployee = () => {
   return (
     <Fragment>
       <form onSubmit={onSubmit}>
-        <div class="mb-3">
-          <label class="form-label">Name of employee</label>
-          <input
-            class="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            placeholder="Enter name"
-          />
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">
+            Name of employee
+          </label>
+          <div class="col-sm-10">
+            <input
+              class="form-control"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              placeholder="Enter name"
+            />
+          </div>
         </div>
-
-        <div class="mb-3">
-          <label class="form-label">Location</label>
-          <input
-            class="form-control"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            type="text"
-            placeholder="Enter Location"
-          />
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">
+            Location
+          </label>
+          <div class="col-sm-10">
+            <input
+              class="form-control"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              type="text"
+              placeholder="Enter Location"
+            />
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Designation</label>
-          <input
-            class="form-control"
-            value={designation}
-            onChange={(e) => setDesignation(e.target.value)}
-            type="text"
-            placeholder="Enter Designation"
-          />
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">
+            Designation
+          </label>
+          <div class="col-sm-10">
+            <input
+              class="form-control"
+              value={designation}
+              onChange={(e) => setDesignation(e.target.value)}
+              type="text"
+              placeholder="Enter Designation"
+            />
+          </div>
         </div>
-
         <button type="submit" class="btn btn-primary">
           Add Employee
         </button>

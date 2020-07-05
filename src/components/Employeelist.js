@@ -49,7 +49,7 @@ export const Employeelist = () => {
           </ul>
         </Fragment>
       ) : (
-        <p className="text-center bg-gray-100 text-gray-500 py-5">No data</p>
+        <p className="text-center">No data</p>
       )}
     </Fragment>
   );
