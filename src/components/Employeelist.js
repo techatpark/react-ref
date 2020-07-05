@@ -8,9 +8,7 @@ export const Employeelist = () => {
     <Fragment>
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <Link to="/add">
-            <a class="nav-link active">Create</a>
-          </Link>
+          <Link to="/add">Create</Link>
         </li>
       </ul>
       {employees.length > 0 ? (

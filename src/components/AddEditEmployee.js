@@ -49,7 +49,7 @@ export function AddEditEmployee({ history, match }) {
       setEmployee(selectedEmp);
     }
     updateLoader(true);
-  }, []);
+  },[isLoaded,employees,id,isAddMode]);
 
   return (
     isLoaded && (
@@ -129,7 +129,7 @@ export function AddEditEmployee({ history, match }) {
                   )}
                   Save
                 </button>
-                <Link to={isAddMode ? "." : ".."} className="btn btn-link">
+                <Link to="/" className="btn btn-link">
                   Cancel
                 </Link>
               </div>

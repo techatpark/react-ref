@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Heading } from "./Heading";
 import { Employeelist } from "./Employeelist";
 
 export const Home = () => {
@@ -7,7 +6,7 @@ export const Home = () => {
     <Fragment>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
-          <a href="#" className="navbar-brand d-flex align-items-center">
+          <a href="/" className="navbar-brand d-flex align-items-center">
             React CRUD
           </a>
           <button
@@ -25,10 +24,10 @@ export const Home = () => {
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <a className="nav-link active">Employees</a>
+                <a href="/" className="nav-link active">Employees</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active">Departments</a>
+                <a href="/" className="nav-link active">Departments</a>
               </li>
             </ul>
           </div>
@@ -38,8 +37,8 @@ export const Home = () => {
             <a
               className="nav-link active"
               href="https://github.com/twbs"
+              rel="noopener noreferrer"
               target="_blank"
-              rel="noopener"
               aria-label="GitHub"
             >
               <i className="fas fa-power-off"></i>
