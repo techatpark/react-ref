@@ -1,5 +1,5 @@
-import {AddEditEmployee} from "./AddEditEmployee";
-import {Employeelist} from "./Employeelist";
+import { AddEditEmployee } from "./AddEditEmployee";
+import { Employeelist } from "./Employeelist";
 
 export {
     AddEditEmployee,

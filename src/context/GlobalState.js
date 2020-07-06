@@ -7,6 +7,10 @@ const initialState = {
     { id: 2, name: "Saro", location: "Coimbatore", designation: "UI Dev" },
     { id: 3, name: "Thiru", location: "Ramnad", designation: "DevOps" },
   ],
+  departments: [
+    { id: 1, name: "Designer", branch: "summa" },
+  ]
+
 };
 
 export const GlobalContext = createContext(initialState);
@@ -38,6 +42,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         employees: state.employees,
+        departments: state.departments,
         removeEmployee,
         addEmployee,
         editEmployee,
