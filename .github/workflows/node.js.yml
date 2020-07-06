@@ -19,7 +19,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run deploy
+          npm run build
         env:
           CI: true
       - name: Install SSH Client 🔑
