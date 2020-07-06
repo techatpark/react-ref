@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://techatpark.github.io/react-ref",
   "dependencies": {
-    "env-cmd": "10.1.0",
     "eslint": "^6.8.0",
     "formik": "2.1.4",
     "gh-pages": "3.1.0",
@@ -16,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "env-cmd -f .env react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
