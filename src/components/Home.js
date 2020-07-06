@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Employeelist } from "./Employeelist";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -24,10 +24,10 @@ export const Home = () => {
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <a href="/" className="nav-link active">Employees</a>
+              <Link to="/employee" className="nav-link active">Employees</Link>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link active">Departments</a>
+              <Link to="/department" className="nav-link active">Departments</Link>
               </li>
             </ul>
           </div>
@@ -51,7 +51,6 @@ export const Home = () => {
         <section className="row mt-5 p-2 min-vh-100">
           <div className="col">
             Welcome to CRUD
-            <Employeelist />
           </div>
         </section>
       </div>

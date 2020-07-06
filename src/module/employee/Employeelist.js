@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "../../context/GlobalState";
 import { Link } from "react-router-dom";
 
 export const Employeelist = () => {
@@ -8,7 +8,7 @@ export const Employeelist = () => {
     <Fragment>
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <Link to="/add">Create</Link>
+          <Link to="/employee/add">Create</Link>
         </li>
       </ul>
       {employees.length > 0 ? (
@@ -24,7 +24,7 @@ export const Employeelist = () => {
                       role="group"
                       aria-label="Basic example"
                     >
-                      <Link to={`/edit/${employee.id}`}>
+                      <Link to={`/employee/edit/${employee.id}`}>
                         <button type="button" class="btn btn-outline-secondary">
                           <i
                             class="far fa-edit"
