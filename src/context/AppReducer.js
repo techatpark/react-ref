@@ -24,6 +24,11 @@ export default (state, action) => {
                 ...state,
                 employees: updatedEmployees
             };
+        case 'ADD_DEPARTMENT':
+            return {
+                ...state,
+                departments: [...state.departments, action.payload]
+            };
         default: return state;
     }
 }

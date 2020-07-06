@@ -13,23 +13,23 @@ export function AddEdit({ history, match }) {
     const initialValues = {
         name: "",
         branch: "",
-        designation: "",
+
     };
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().required("Name is required"),
         branch: Yup.string().required("branch is required"),
-        designation: Yup.string().required("Designation is required"),
+
     });
 
     function onSubmit(fields, { setStatus, setSubmitting }) {
         setStatus();
         console.log("success", fields)
-        // if (isAddMode) {
-        //     createDepartment(fields, setSubmitting);
-        // } else {
-        //     updateDepartment(fields, setSubmitting);
-        // }
+        if (isAddMode) {
+            createDepartment(fields, setSubmitting);
+        } else {
+            updateDepartment(fields, setSubmitting);
+        }
     }
 
     function createDepartment(fields, setSubmitting) {

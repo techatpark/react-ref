@@ -38,11 +38,19 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function addDepartment(department) {
+    dispatch({
+      type: "ADD_DEPARTMENT",
+      payload: department,
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         employees: state.employees,
         departments: state.departments,
+        addDepartment,
         removeEmployee,
         addEmployee,
         editEmployee,
