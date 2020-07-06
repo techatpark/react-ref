@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-export const Wrapper = ({children}) => {
+export const Wrapper = ({ children }) => {
   return (
     <Fragment>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
-          <a href="/" className="navbar-brand d-flex align-items-center">
+          <Link to="/" className="navbar-brand d-flex align-items-center">
             React CRUD
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,10 +24,14 @@ export const Wrapper = ({children}) => {
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-              <Link to="/employee" className="nav-link active">Employees</Link>
+                <Link to="/employee" className="nav-link active">
+                  Employees
+                </Link>
               </li>
               <li className="nav-item">
-              <Link to="/department" className="nav-link active">Departments</Link>
+                <Link to="/department" className="nav-link active">
+                  Departments
+                </Link>
               </li>
             </ul>
           </div>
@@ -48,9 +52,7 @@ export const Wrapper = ({children}) => {
       </nav>
 
       <div className="container-fluid mt-3 vh-100 pb-5">
-        <section className="row mt-5 p-2">
-          {children}
-        </section>
+        <section className="row mt-5 p-2">{children}</section>
       </div>
     </Fragment>
   );
