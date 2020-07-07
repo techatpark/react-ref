@@ -8,7 +8,8 @@ const initialState = {
     { id: 3, name: "Thiru", location: "Ramnad", designation: "DevOps" },
   ],
   departments: [
-    { id: 1, name: "Designer", branch: "summa" },
+    { id: 1, name: "Sai", branch: "Designer" },
+    { id: 2, name: "Sairam", branch: "Developer" }
   ]
 
 };
@@ -45,12 +46,28 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function editDepartment(department) {
+    dispatch({
+      type: "EDIT_DEPARTMENT",
+      payload: department,
+    });
+  }
+  function removeDepartment(id) {
+    dispatch({
+      type: "REMOVE_DEPARTMENT",
+      payload: id,
+    });
+  }
+
+
   return (
     <GlobalContext.Provider
       value={{
         employees: state.employees,
         departments: state.departments,
         addDepartment,
+        editDepartment,
+        removeDepartment,
         removeEmployee,
         addEmployee,
         editEmployee,

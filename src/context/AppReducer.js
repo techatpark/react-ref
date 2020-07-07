@@ -29,6 +29,25 @@ export default (state, action) => {
                 ...state,
                 departments: [...state.departments, action.payload]
             };
+        case 'EDIT_DEPARTMENT':
+            const updatedDepartment = action.payload;
+
+            const updatedDepartments = state.departments.map(department => {
+                if (department.id === updatedDepartment.id) {
+                    return updatedDepartment;
+                }
+                return department;
+            });
+
+            return {
+                ...state,
+                departments: updatedDepartments
+            };
+        case 'REMOVE_DEPARTMENT':
+            return {
+                ...state,
+                departments: state.departments.filter(department => department.id !== action.payload)
+            };
         default: return state;
     }
 }
