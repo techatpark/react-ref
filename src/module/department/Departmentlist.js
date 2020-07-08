@@ -1,9 +1,26 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import { Link } from "react-router-dom";
+import { Pagination } from "react-bootstrap";
 
 export const Departmentlist = () => {
-    const { departments, removeDepartment, editDepartment } = useContext(GlobalContext);
+    const { departments, removeDepartment, editDepartment, fetchDepartments, } = useContext(GlobalContext);
+    const [deps, setDep] = useState([]);
+    const getDepartments = (pageNumber) => {
+        setDep(fetchDepartments(pageNumber));
+    };
+    useEffect(() => {
+        getDepartments(1);
+    }, []);
+
+    let Items = [];
+    for (let i = 0, j = 1; i < departments.length; i = i + 4, j++) {
+        Items.push(
+            <Pagination.Item onClick={() => getDepartments(j)}>{j}</Pagination.Item>
+        );
+    }
+
+
     return (
         <Fragment>
             <ul class="nav justify-content-end">
@@ -14,7 +31,7 @@ export const Departmentlist = () => {
             {departments.length > 0 ? (
                 <Fragment>
                     <ul class="list-group list-group-flush">
-                        {departments.map((department) => (
+                        {deps.map((department) => (
                             <div className="list-group-item" key={department.id}>
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">{department.name}</h5>
@@ -49,6 +66,10 @@ export const Departmentlist = () => {
             ) : (
                     <p className="text-center">No data</p>
                 )}
+
+            <div className="container-fluid">
+                <Pagination>{Items}</Pagination>
+            </div>
         </Fragment>
     );
 };

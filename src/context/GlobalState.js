@@ -19,6 +19,16 @@ const initialState = {
   departments: [
     { id: 1, name: "Sai", branch: "Designer" },
     { id: 2, name: "Sairam", branch: "Developer" },
+    { id: 3, name: "Hari", branch: "Designer" },
+    { id: 4, name: "Priya", branch: "Developer" },
+    { id: 5, name: "Ramya", branch: "Designer" },
+    { id: 6, name: "Thiru", branch: "Developer" },
+    { id: 7, name: "Sathish", branch: "Designer" },
+    { id: 8, name: "Raja", branch: "Developer" },
+    { id: 9, name: "Ramya1", branch: "Designer" },
+    { id: 10, name: "Thiru1", branch: "Developer" },
+    { id: 11, name: "Sathish1", branch: "Designer" },
+    { id: 12, name: "Raja1", branch: "Developer" },
   ],
 };
 
@@ -78,6 +88,17 @@ export const GlobalProvider = ({ children }) => {
     return paginatedEmployess;
   }
 
+    //here the logic for pagination
+    function fetchDepartments(page) {
+      const start = page === 1 ? page - 1 : (page - 1) * 4;
+      const end =
+        page * 4 >= state.departments.length
+          ? page * 4
+          : page * 4 - state.departments.length;
+      const paginatedDepartmentss = state.departments.slice(start, end);
+      return paginatedDepartmentss;
+    }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -90,6 +111,7 @@ export const GlobalProvider = ({ children }) => {
         addEmployee,
         editEmployee,
         fetchEmployees,
+        fetchDepartments,
       }}
     >
       {children}
