@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState, normalizeResponseErrors } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import { Link } from "react-router-dom";
 import { Pagination } from "react-bootstrap";
@@ -15,7 +15,21 @@ export const Employeelist = () => {
     setEmp(fetchEmployees(pageNumber));
   };
   useEffect(() => {
-    getEmployees(1);
+    const getEmployees = () => {
+      return fetch("theURL", { method: "GET" }
+      )
+        .then(res => normalizeResponseErrors(res))
+        .then(res => {
+          return res.json();
+        })
+        .then(rcvdBusinesses => {
+          // some stuff
+        })
+        .catch(err => {
+          // some error handling
+        });
+    };
+    getEmployees();
   }, []);
 
   let Items = [];
@@ -68,8 +82,8 @@ export const Employeelist = () => {
           </ul>
         </Fragment>
       ) : (
-        <p className="text-center">No data</p>
-      )}
+          <p className="text-center">No data</p>
+        )}
       <div className="container-fluid">
         <Pagination>{Items}</Pagination>
       </div>

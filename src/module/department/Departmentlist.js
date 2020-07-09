@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState, normalizeResponseErrors } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import { Link } from "react-router-dom";
 import { Pagination } from "react-bootstrap";
@@ -10,7 +10,21 @@ export const Departmentlist = () => {
         setDep(fetchDepartments(pageNumber));
     };
     useEffect(() => {
-        getDepartments(1);
+        const getDepartments = () => {
+            return fetch("theURL", {method: "GET"}
+         )
+           .then(res => normalizeResponseErrors(res))
+           .then(res => {
+             return res.json();
+           })
+           .then(rcvdBusinesses => {
+             // some stuff
+           })
+           .catch(err => {
+             // some error handling
+           });
+       };
+       getDepartments();
     }, []);
 
     let Items = [];
